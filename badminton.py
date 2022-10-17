@@ -58,7 +58,8 @@ class Badminton:
 
 
     # usedate format: yyyy-MM-dd
-    def get_location_available(self, usedate=''):
+    def get_location_available(self, venue, land, usedate=''):
+        lid_key = LAND_MAP[venue][land]
         method = 'getResLocationAvailableData'
         data = {
             'UseDate': usedate,
@@ -68,7 +69,7 @@ class Badminton:
             'COID': self.coid,
             'typeID': self.typeid,
             'Lang': self.lang,
-            'LIDKey': 'BTSC┼BT5FBadminton01',
+            'LIDKey': lid_key,
         }
 
         return self.__post(method, data)
