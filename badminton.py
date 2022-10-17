@@ -74,17 +74,14 @@ class Badminton:
         return self.__post(method, data)
 
 
-    def get_online_payment_details(self, usedate=''):
+    def get_online_payment_details(self, obid):
         method = 'getResLocationAvailableData'
         data = {
-            'UseDate': usedate,
-            'UPID': self.upid,
-            'TempID': self.uuid,
-            'UUID': self.uuid,
             'COID': self.coid,
+            'UPID': self.upid,
             'typeID': self.typeid,
             'Lang': self.lang,
-            'LIDKey': 'BTSC┼BT5FBadminton01',
+            'OBID': obid,
         }
 
         return self.__post(method, data)
