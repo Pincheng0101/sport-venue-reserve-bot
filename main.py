@@ -180,7 +180,7 @@ class MainWindow(QMainWindow):
 
     def reserve_loop(self):
         now = time.time()
-        if now > self.start_reserve_time:
+        if now >= self.start_reserve_time:
             result = self.badminton.reserve_location(self.venue, self.land, self.date, self.start_time, self.end_time)
             if result['Data']['Status'] == "1":
                 self.append_message(f"{self.toDateTime(now)} 預約成功")
