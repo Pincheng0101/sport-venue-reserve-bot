@@ -14,3 +14,6 @@ pip install -r requirements.txt
 ```
 python main.py
 ```
+
+## Demo
+![demo](images/demo.png)
