@@ -16,6 +16,7 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
 
         # default
+        self.uuid = ''
         self.upid = ''
         self.username = ''
         self.phonenumber = ''
@@ -34,6 +35,7 @@ class MainWindow(QMainWindow):
         self.font.setPointSize(20)
 
         page_layout = QVBoxLayout()
+        uuid_layout = QHBoxLayout()
         upid_layout = QHBoxLayout()
         username_layout = QHBoxLayout()
         phonenumber_layout = QHBoxLayout()
@@ -43,6 +45,7 @@ class MainWindow(QMainWindow):
         start_time_layout = QHBoxLayout()
         end_time_layout = QHBoxLayout()
 
+        page_layout.addLayout(uuid_layout)
         page_layout.addLayout(upid_layout)
         page_layout.addLayout(username_layout)
         page_layout.addLayout(phonenumber_layout)
@@ -51,6 +54,10 @@ class MainWindow(QMainWindow):
         page_layout.addLayout(date_layout)
         page_layout.addLayout(start_time_layout)
         page_layout.addLayout(end_time_layout)
+
+        uuid_layout.addWidget(self.label("UUID：      "))
+        self.uuid_layout = self.input(self.uuid)
+        uuid_layout.addWidget(self.uuid_layout)
 
         upid_layout.addWidget(self.label("UPID：      "))
         self.upid_input = self.input(self.upid)
@@ -155,7 +162,7 @@ class MainWindow(QMainWindow):
     def init_badminton(self):
         self.badminton = Badminton(
             # universally unique id
-            uuid='43820D38-282F-4ECE-92DD-AE5B777AC892',
+            uuid=self.uuid_input.text(),
             # user personal id
             upid=self.upid_input.text(),
             username=self.username_input.text(),
