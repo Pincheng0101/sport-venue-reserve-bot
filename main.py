@@ -56,8 +56,8 @@ class MainWindow(QMainWindow):
         page_layout.addLayout(end_time_layout)
 
         uuid_layout.addWidget(self.label("UUID：      "))
-        self.uuid_layout = self.input(self.uuid)
-        uuid_layout.addWidget(self.uuid_layout)
+        self.uuid_input = self.input(self.uuid)
+        uuid_layout.addWidget(self.uuid_input)
 
         upid_layout.addWidget(self.label("UPID：      "))
         self.upid_input = self.input(self.upid)
