@@ -191,6 +191,7 @@ class MainWindow(QMainWindow):
             result = self.badminton.reserve_location(self.venue, self.land, self.date, self.start_time, self.end_time)
             if result['Data']['Status'] == "1":
                 self.append_message(f"{self.toDateTime(now)} 預約成功")
+                QTimer.singleShot(590000, lambda: self.reserve_loop())
             else:
                 self.append_message(f"{self.toDateTime(now)} 預約失敗")
                 QTimer.singleShot(200, lambda: self.reserve_loop())
