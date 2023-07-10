@@ -175,7 +175,7 @@ class MainWindow(QMainWindow):
         self.date = self.date_input.text()
         self.start_time = self.start_time_input.text()
         self.end_time = self.end_time_input.text()
-        self.start_reserve_time = (datetime.strptime(self.date, '%Y-%m-%d') - timedelta(days=13, seconds=5)).timestamp()
+        self.start_reserve_time = (datetime.strptime(self.date, '%Y-%m-%d') - timedelta(days=13, seconds=1)).timestamp()
 
     def wait_loop(self):
         self.set_message()
@@ -191,7 +191,7 @@ class MainWindow(QMainWindow):
             result = self.badminton.reserve_location(self.venue, self.land, self.date, self.start_time, self.end_time)
             if result['Data']['Status'] == "1":
                 self.append_message(f"{self.toDateTime(now)} 預約成功")
-                QTimer.singleShot(590000, lambda: self.reserve_loop())
+                QTimer.singleShot(600000, lambda: self.reserve_loop())
             else:
                 self.append_message(f"{self.toDateTime(now)} 預約失敗")
                 QTimer.singleShot(200, lambda: self.reserve_loop())
