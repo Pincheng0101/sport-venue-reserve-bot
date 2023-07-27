@@ -175,7 +175,7 @@ class MainWindow(QMainWindow):
         self.date = self.date_input.text()
         self.start_time = self.start_time_input.text()
         self.end_time = self.end_time_input.text()
-        self.start_reserve_time = (datetime.strptime(self.date, '%Y-%m-%d') - timedelta(days=13, seconds=1)).timestamp()
+        self.start_reserve_time = (datetime.strptime(self.date, '%Y-%m-%d') - timedelta(days=13, milliseconds=200)).timestamp()
 
     def wait_loop(self):
         self.set_message()
