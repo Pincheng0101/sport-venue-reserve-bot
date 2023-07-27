@@ -189,6 +189,7 @@ class MainWindow(QMainWindow):
         now = time.time()
         if now >= self.start_reserve_time:
             result = self.badminton.reserve_location(self.venue, self.land, self.date, self.start_time, self.end_time)
+            print(result)
             if result['Data']['Status'] == "1":
                 self.append_message(f"{self.toDateTime(now)} 預約成功")
                 QTimer.singleShot(600000, lambda: self.reserve_loop())
